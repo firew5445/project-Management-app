@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create a user with predefined values
+        
         User::factory()->create([
             'name' => 'Firew',
             'email' => 'firewfilpos27@gmail.com',
@@ -21,9 +21,9 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now()
         ]);
 
-        // Create 30 projects, each with 30 tasks
-        Project::factory(30) // Create 30 projects
-            ->hasTasks(30)     // Each project will have 30 tasks
+    
+        Project::factory(30) 
+            ->hasTasks(30)     
             ->create();
     }
 }

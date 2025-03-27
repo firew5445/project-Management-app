@@ -25,7 +25,7 @@ class ProjectFactory extends Factory
             'name' => $this->faker->sentence(),          // Generates a random sentence for project name
             'description' => $this->faker->paragraph(),  // Generates a random paragraph for project description
             'due_date' => $this->faker->dateTimeBetween('now', '+1 year'), // Random due date within the next year
-            'status' => $this->faker->randomElement(['pending', 'completed', 'in progress']), // Random project status
+            'status' => $this->faker->randomElement(['pending', 'completed', 'in_progress']), // Random project status
             'image_path' => $this->faker->imageUrl(),    // Generates a random image URL
             'created_by' => 1,                            // Assuming user ID 1 created the project
             'updated_by' => 1,                            // Assuming user ID 1 updated the project
