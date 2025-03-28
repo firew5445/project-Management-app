@@ -13,7 +13,30 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        $query =Task::query();
+        $sortField = request("sort_field", 'created_at');
+        $sortDirection = request("sort_direction", "desc");
+       
+
+      //filtering logic
+        if(request('name')){
+            $query->where('name', 'like', '%'.request('name').'%');
+        }
+        if(request('status')){
+            $query->where('status', request('status'));
+           
+        }
+
+        $tasks = $query->OrderBy($sortField, $sortDirection)->paginate(10)->onEachSide(1);
+        
+
+
+      return Inertia('Task/Index', [
+
+            "taks" => ProjectResource::collection($projects),
+            'queryParams'=>request()->query()?: null,//passing view for filtering logic
+
+      ]);
     }
 
     /**
